@@ -17,26 +17,19 @@ namespace Clean_Room
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Password;
 
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
-            {
-                MessageBox.Show("아이디와 비밀번호를 모두 입력해주세요.", "알림", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            // 모듈화된 DB Helper 호출
             if (DatabaseHelper.AuthenticateUser(username, password))
             {
-                MessageBox.Show("인증에 성공했습니다.", "성공", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("로그인 성공!");
 
-                // 메인 화면 실행 (MainWindow가 프로젝트에 정의되어 있어야 합니다)
-                // MainWindow mainWin = new MainWindow();
-                // mainWin.Show();
+                // 새로운 창 이름으로 인스턴스 생성
+                IOMonitorWindow monitorWin = new IOMonitorWindow();
+                monitorWin.Show(); // 관제 화면 열기
 
-                this.Close();
+                this.Close(); // 로그인 창 닫기
             }
             else
             {
-                MessageBox.Show("아이디 또는 비밀번호가 올바르지 않습니다.", "오류", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("아이디 또는 비밀번호가 틀렸습니다.");
             }
         }
 
