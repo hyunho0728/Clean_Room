@@ -14,10 +14,10 @@ namespace Clean_Room
         // 로그인 버튼 클릭 이벤트
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            string username = txtUsername.Text.Trim();
+            string userID = txtUserId.Text.Trim();
             string password = txtPassword.Password;
 
-            if (DatabaseHelper.AuthenticateUser(username, password))
+            if (DatabaseHelper.AuthenticateUser(userID, password))
             {
                 MessageBox.Show("로그인 성공!");
 
@@ -39,6 +39,11 @@ namespace Clean_Room
             RegisterWindow registerWindow = new RegisterWindow();
             registerWindow.Show();
             this.Close();
+        }
+
+        private void txtUserId_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+
         }
     }
 }

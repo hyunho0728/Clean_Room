@@ -11,19 +11,19 @@
             <TextBlock Text="CLEANROOM SYSTEM" FontSize="26" FontWeight="Bold" 
                        Foreground="#22D3EE" HorizontalAlignment="Center" Margin="0,0,0,25"/>
 
-            <TextBlock Text="사용자 ID" Foreground="#9CA3AF" Margin="0,5,0,2"/>
-            <TextBox x:Name="txtUsername" Height="35" VerticalContentAlignment="Center" 
-                     Background="#1F2937" Foreground="White" BorderBrush="#374151" Padding="5,0"/>
+            <TextBlock Text="ID" Foreground="#9CA3AF" Margin="0,5,0,2"/>
+            <TextBox x:Name="txtUserId" Height="35" VerticalContentAlignment="Center" 
+                     Background="#1F2937" Foreground="White" BorderBrush="#374151" Padding="5,0" TextChanged="txtUserId_TextChanged"/>
 
             <TextBlock Text="비밀번호" Foreground="#9CA3AF" Margin="0,15,0,2"/>
             <PasswordBox x:Name="txtPassword" Height="35" VerticalContentAlignment="Center" 
                          Background="#1F2937" Foreground="White" BorderBrush="#374151" Padding="5,0"/>
 
-            <Button x:Name="btnLogin" Content="로그인" Height="40" Margin="0,25,0,5" 
+            <Button x:Name="btnLogin" Content="LOG IN" Height="40" Margin="0,25,0,5" 
                     Background="#22D3EE" Foreground="#111827" FontWeight="Bold" 
                     BorderThickness="0" Click="btnLogin_Click" Cursor="Hand"/>
 
-            <Button x:Name="btnGoToRegister" Content="새 계정 만들기 (회원가입)" Background="Transparent" 
+            <Button x:Name="btnGoToRegister" Content="CREATE ACCOUNT" Background="Transparent" 
                     Foreground="#9CA3AF" BorderThickness="0" Cursor="Hand" Click="btnGoToRegister_Click"/>
         </StackPanel>
     </Grid>

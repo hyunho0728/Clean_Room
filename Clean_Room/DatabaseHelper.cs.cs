@@ -26,9 +26,13 @@ namespace Clean_Room
                 string createTableQuery = @"
                     CREATE TABLE IF NOT EXISTS Users (
                         Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        Username TEXT UNIQUE NOT NULL,
+                        UserID TEXT UNIQUE NOT NULL,
                         Password TEXT NOT NULL,
                         FullName TEXT NOT NULL,
+                        Phone TEXT NOT NULL,
+                        Role TEXT NOT NULL,
+                        Gender TEXT NOT NULL,
+                        Email TEXT NOT NULL,
                         CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP
                     );";
 
@@ -48,14 +52,18 @@ namespace Clean_Room
                 {
                     connection.Open();
                     string insertQuery = @"
-                        INSERT INTO Users (Username, Password, FullName) 
-                        VALUES ($username, $password, $fullname);";
+                        INSERT INTO Users (UserID, Password, FullName, Phone, Role, Gender, Email)
+                        VALUES ($userID, $password, $fullname, $phone, $role, $gender, $email);";
 
                     using (var command = new SqliteCommand(insertQuery, connection))
                     {
-                        command.Parameters.AddWithValue("$username", user.Username);
+                        command.Parameters.AddWithValue("$userID", user.UserID);
                         command.Parameters.AddWithValue("$password", user.Password);
                         command.Parameters.AddWithValue("$fullname", user.FullName);
+                        command.Parameters.AddWithValue("$phone", user.Phone);
+                        command.Parameters.AddWithValue("$role", user.Role);
+                        command.Parameters.AddWithValue("$gender", user.Gender);
+                        command.Parameters.AddWithValue("$email", user.Email);
 
                         command.ExecuteNonQuery();
                         return true;
@@ -72,17 +80,17 @@ namespace Clean_Room
             }
         }
 
-        // 로그인 인증 처리 (기존 코드와 동일)
-        public static bool AuthenticateUser(string username, string password)
+        // 로그인 인증 처리
+        public static bool AuthenticateUser(string userID, string password)
         {
             using (var connection = new SqliteConnection(ConnectionString))
             {
                 connection.Open();
-                string selectQuery = "SELECT COUNT(1) FROM Users WHERE Username = $username AND Password = $password;";
+                string selectQuery = "SELECT COUNT(1) FROM Users WHERE UserID = $userID AND Password = $password;";
 
                 using (var command = new SqliteCommand(selectQuery, connection))
                 {
-                    command.Parameters.AddWithValue("$username", username);
+                    command.Parameters.AddWithValue("$userID", userID);
                     command.Parameters.AddWithValue("$password", password);
 
                     long count = (long)command.ExecuteScalar();

@@ -12,5 +12,4 @@
     <PackageReference Include="Beckhoff.TwinCAT.Ads" Version="7.0.172" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.8" />
   </ItemGroup>
-
 </Project>
