@@ -12,9 +12,8 @@ namespace Clean_Room
             // LoginWindow 생성자 내부에 두어도 되지만 여기서 일괄 처리하면 관리하기 좋습니다.
             DatabaseHelper.InitializeDatabase();
 
-            // 2. 로그인 창 객체 생성 및 출력
-            LoginWindow loginWindow = new LoginWindow();
-            loginWindow.Show();
+            // 2. 로그인 창 출력
+            new LoginWindow().Show();
         }
     }
 }

@@ -40,9 +40,8 @@
             <TextBlock Text="직무" Foreground="#9CA3AF" Margin="0,10,0,2"/>
             <StackPanel x:Name="pnlRegRole" Margin="5,4,0,0">
                 <RadioButton Content="관리자"       Foreground="White" Margin="0,3" GroupName="Role"/> <!-- 주로 모니터링 하는 대상 -->
-                <RadioButton Content="생산자"       Foreground="White" Margin="0,3" GroupName="Role"/> 
-                <RadioButton Content="센서 엔지니어" Foreground="White" Margin="0,3" GroupName="Role"/>  <!-- 클린룸 장비 센서 엔지니어 --> <!-- 센서 문제 발생시 클린룸 내부로 진입 가능 -->
-                <RadioButton Content="장비 엔지니어" Foreground="White" Margin="0,3" GroupName="Role"/> <!-- 8대 공정 장비 엔지니어 -->  <!-- 장비 문제 발생시 클린룸 내부로 진입 가능 -->
+                <RadioButton Content="작업자"       Foreground="White" Margin="0,3" GroupName="Role"/> 
+                <RadioButton Content="장비 엔지니어" Foreground="White" Margin="0,3" GroupName="Role"/> <!-- 진동 이상 감지 시 클린룸 내 공정 장비 수리 -->
                 
             </StackPanel>
 

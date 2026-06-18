@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>8대 반도체 공정 장비</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0f1117; color: #e2e8f0; font-family: 'Segoe UI', sans-serif; padding: 32px; }
+  h1 { font-size: 20px; font-weight: 500; margin-bottom: 24px; color: #94a3b8; letter-spacing: 0.05em; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .card { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 12px; overflow: hidden; }
+  .img-wrap { width: 100%; aspect-ratio: 4/3; overflow: hidden; background: #111827; }
+  .img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
+  .card:hover .img-wrap img { transform: scale(1.05); }
+  .body { padding: 14px 16px; }
+  .num  { font-size: 11px; color: #64748b; margin-bottom: 4px; }
+  .name { font-size: 14px; font-weight: 600; color: #e2e8f0; margin-bottom: 4px; }
+  .proc { font-size: 12px; color: #22d3ee; }
+  .src  { font-size: 10px; color: #334155; margin-top: 6px; }
+</style>
+</head>
+<body>
+<h1>8대 반도체 공정 장비 참고 이미지</h1>
+<div class="grid">
+
+  <div class="card">
+    <div class="img-wrap">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Centrotherm_diffusion_furnace_at_LAAS_0489.jpg/500px-Centrotherm_diffusion_furnace_at_LAAS_0489.jpg" alt="산화로">
+    </div>
+    <div class="body">
+      <p class="num">① 산화로</p>
+      <p class="name">Oxidation Furnace</p>
+      <p class="proc">산화 공정 (Oxidation)</p>
+      <p class="src">© Wikimedia Commons / LAAS</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="img-wrap">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Wafertraksystem.jpg/500px-Wafertraksystem.jpg" alt="포토리소그래피">
+    </div>
+    <div class="body">
+      <p class="num">② 포토리소그래피</p>
+      <p class="name">Stepper / Track System</p>
+      <p class="proc">포토 공정 (Photolithography)</p>
+      <p class="src">© Wikimedia Commons</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="img-wrap">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Reactive_Ion_Etcher.JPG/500px-Reactive_Ion_Etcher.JPG" alt="식각기">
+    </div>
+    <div class="body">
+      <p class="num">③ 식각기</p>
+      <p class="name">Reactive Ion Etcher (RIE)</p>
+      <p class="proc">식각 공정 (Etching)</p>
+      <p class="src">© Wikimedia Commons</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="img-wrap">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/PICT0111.JPG/500px-PICT0111.JPG" alt="CVD 증착기">
+    </div>
+    <div class="body">
+      <p class="num">④ CVD 증착기</p>
+      <p class="name">CVD Reactor</p>
+      <p class="proc">박막·증착 공정 (CVD)</p>
+      <p class="src">© Wikimedia Commons</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="img-wrap">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Ion_implantation_machine_at_LAAS_0521.jpg/500px-Ion_implantation_machine_at_LAAS_0521.jpg" alt="이온주입기">
+    </div>
+    <div class="body">
+      <p class="num">⑤ 이온주입기</p>
+      <p class="name">Ion Implanter</p>
+      <p class="proc">금속 배선 공정 (Ion Implantation)</p>
+      <p class="src">© Wikimedia Commons / LAAS</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="img-wrap">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Cmp_prinzip.jpg/500px-Cmp_prinzip.jpg" alt="CMP">
+    </div>
+    <div class="body">
+      <p class="num">⑥ CMP</p>
+      <p class="name">Chemical Mechanical Planarization</p>
+      <p class="proc">배선 공정 (CMP)</p>
+      <p class="src">© Wikimedia Commons</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="img-wrap">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Sputtering2.gif/500px-Sputtering2.gif" alt="PVD 스퍼터">
+    </div>
+    <div class="body">
+      <p class="num">⑦ PVD 스퍼터</p>
+      <p class="name">PVD Sputtering System</p>
+      <p class="proc">EDS 공정 (Sputtering)</p>
+      <p class="src">© Wikimedia Commons</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="img-wrap">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/ORNL_History_%2845753561754%29.jpg/500px-ORNL_History_%2845753561754%29.jpg" alt="세정기">
+    </div>
+    <div class="body">
+      <p class="num">⑧ 세정기</p>
+      <p class="name">Wet Bench Cleaner</p>
+      <p class="proc">패키징 공정 (Wet Cleaning)</p>
+      <p class="src">© Wikimedia Commons / ORNL</p>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

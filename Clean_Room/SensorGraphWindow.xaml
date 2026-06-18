@@ -1,0 +1,129 @@
+<Window x:Class="Clean_Room.SensorGraphWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="실시간 센서 그래프"
+        Background="#0A0F1E"
+        Width="900" Height="620"
+        ResizeMode="CanResize"
+        WindowStartupLocation="CenterOwner">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="44"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- 헤더 -->
+        <Border Grid.Row="0" Background="#0D1B2A" BorderBrush="#1E3A5F" BorderThickness="0,0,0,1">
+            <Grid Margin="20,0">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Ellipse Width="8" Height="8" Fill="#A78BFA" VerticalAlignment="Center"/>
+                    <TextBlock Text="실시간 센서 그래프" Foreground="#A78BFA"
+                               FontSize="13" FontWeight="SemiBold" Margin="10,0,0,0"
+                               VerticalAlignment="Center"/>
+                    <TextBlock Text="(최근 60초)" Foreground="#4B5563"
+                               FontSize="11" Margin="12,0,0,0" VerticalAlignment="Center"/>
+                </StackPanel>
+                <!-- 범례 -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Ellipse Width="10" Height="10" Fill="#22D3EE" VerticalAlignment="Center"/>
+                    <TextBlock Text="온도" Foreground="#22D3EE" FontSize="11" Margin="4,0,16,0"/>
+                    <Ellipse Width="10" Height="10" Fill="#34D399" VerticalAlignment="Center"/>
+                    <TextBlock Text="습도" Foreground="#34D399" FontSize="11" Margin="4,0,16,0"/>
+                    <Ellipse Width="10" Height="10" Fill="#A78BFA" VerticalAlignment="Center"/>
+                    <TextBlock Text="압력" Foreground="#A78BFA" FontSize="11" Margin="4,0,16,0"/>
+                    <Ellipse Width="10" Height="10" Fill="#FBBF24" VerticalAlignment="Center"/>
+                    <TextBlock Text="진동" Foreground="#FBBF24" FontSize="11" Margin="4,0,0,0"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- 탭 -->
+        <TabControl x:Name="tabMain" Grid.Row="1" Background="#0A0F1E" BorderBrush="#1E3A5F">
+            <TabControl.Resources>
+                <Style TargetType="TabItem">
+                    <Setter Property="Background" Value="#0D1B2A"/>
+                    <Setter Property="Foreground" Value="#9CA3AF"/>
+                    <Setter Property="BorderBrush" Value="#1E3A5F"/>
+                    <Setter Property="Padding" Value="16,6"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Foreground" Value="#22D3EE"/>
+                            <Setter Property="Background" Value="#0A1628"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TabControl.Resources>
+
+            <!-- CLEAN ROOM 01 -->
+            <TabItem x:Name="tabRoom1" Header="CLEAN ROOM  01">
+                <ScrollViewer Background="#0A0F1E" VerticalScrollBarVisibility="Auto">
+                    <StackPanel Margin="16,12">
+                        <TextBlock Text="🌡 온도  (°C)" Foreground="#22D3EE"
+                                   FontSize="12" FontWeight="SemiBold" Margin="0,0,0,4"/>
+                        <Border Background="#0D1B2A" CornerRadius="6"
+                                BorderBrush="#1E3A5F" BorderThickness="1" Margin="0,0,0,16">
+                            <Canvas x:Name="chartR1Temp" Height="150" ClipToBounds="True"/>
+                        </Border>
+
+                        <TextBlock Text="💧 습도  (%RH)" Foreground="#34D399"
+                                   FontSize="12" FontWeight="SemiBold" Margin="0,0,0,4"/>
+                        <Border Background="#0D1B2A" CornerRadius="6"
+                                BorderBrush="#1E3A5F" BorderThickness="1" Margin="0,0,0,16">
+                            <Canvas x:Name="chartR1Hum" Height="150" ClipToBounds="True"/>
+                        </Border>
+
+                        <TextBlock Text="⟳ 압력  (MPa)" Foreground="#A78BFA"
+                                   FontSize="12" FontWeight="SemiBold" Margin="0,0,0,4"/>
+                        <Border Background="#0D1B2A" CornerRadius="6"
+                                BorderBrush="#1E3A5F" BorderThickness="1" Margin="0,0,0,16">
+                            <Canvas x:Name="chartR1Pres" Height="150" ClipToBounds="True"/>
+                        </Border>
+
+                        <TextBlock Text="📳 진동  (m/s²)" Foreground="#FBBF24"
+                                   FontSize="12" FontWeight="SemiBold" Margin="0,0,0,4"/>
+                        <Border Background="#0D1B2A" CornerRadius="6"
+                                BorderBrush="#1E3A5F" BorderThickness="1">
+                            <Canvas x:Name="chartR1Vib" Height="150" ClipToBounds="True"/>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+
+            <!-- CLEAN ROOM 02 -->
+            <TabItem x:Name="tabRoom2" Header="CLEAN ROOM  02">
+                <ScrollViewer Background="#0A0F1E" VerticalScrollBarVisibility="Auto">
+                    <StackPanel Margin="16,12">
+                        <TextBlock Text="🌡 온도  (°C)" Foreground="#22D3EE"
+                                   FontSize="12" FontWeight="SemiBold" Margin="0,0,0,4"/>
+                        <Border Background="#0D1B2A" CornerRadius="6"
+                                BorderBrush="#1E3A5F" BorderThickness="1" Margin="0,0,0,16">
+                            <Canvas x:Name="chartR2Temp" Height="150" ClipToBounds="True"/>
+                        </Border>
+
+                        <TextBlock Text="💧 습도  (%RH)" Foreground="#34D399"
+                                   FontSize="12" FontWeight="SemiBold" Margin="0,0,0,4"/>
+                        <Border Background="#0D1B2A" CornerRadius="6"
+                                BorderBrush="#1E3A5F" BorderThickness="1" Margin="0,0,0,16">
+                            <Canvas x:Name="chartR2Hum" Height="150" ClipToBounds="True"/>
+                        </Border>
+
+                        <TextBlock Text="⟳ 압력  (MPa)" Foreground="#A78BFA"
+                                   FontSize="12" FontWeight="SemiBold" Margin="0,0,0,4"/>
+                        <Border Background="#0D1B2A" CornerRadius="6"
+                                BorderBrush="#1E3A5F" BorderThickness="1" Margin="0,0,0,16">
+                            <Canvas x:Name="chartR2Pres" Height="150" ClipToBounds="True"/>
+                        </Border>
+
+                        <TextBlock Text="📳 진동  (m/s²)" Foreground="#FBBF24"
+                                   FontSize="12" FontWeight="SemiBold" Margin="0,0,0,4"/>
+                        <Border Background="#0D1B2A" CornerRadius="6"
+                                BorderBrush="#1E3A5F" BorderThickness="1">
+                            <Canvas x:Name="chartR2Vib" Height="150" ClipToBounds="True"/>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

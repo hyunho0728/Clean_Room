@@ -19,8 +19,8 @@ namespace Clean_Room
             string passwordConfirm = txtRegPasswordConfirm.Password;
             string fullName        = txtRegFullName.Text.Trim();
             string phone    = txtRegPhone.Text.Trim();
-            string role   = pnlRegRole.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked == true)?.Content?.ToString();
-            string gender = pnlRegGender.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked == true)?.Content?.ToString();
+            string role   = pnlRegRole.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked == true)?.Content?.ToString() ?? "";
+            string gender = pnlRegGender.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked == true)?.Content?.ToString() ?? "";
             string email    = txtRegEmail.Text.Trim();
 
             // 유효성 검사

@@ -14,18 +14,33 @@ namespace Clean_Room
         // 로그인 버튼 클릭 이벤트
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            string userID = txtUserId.Text.Trim();
+            string userID   = txtUserId.Text.Trim();
             string password = txtPassword.Password;
 
-            if (DatabaseHelper.AuthenticateUser(userID, password))
+            User user = DatabaseHelper.AuthenticateUser(userID, password);
+
+            if (user != null)
             {
-                MessageBox.Show("로그인 성공!");
+                Window nextWindow;
 
-                // 새로운 창 이름으로 인스턴스 생성
-                IOMonitorWindow monitorWin = new IOMonitorWindow();
-                monitorWin.Show(); // 관제 화면 열기
+                switch (user.Role)
+                {
+                    case "관리자":
+                        // ── 물리 2차 인증 ──
+                        nextWindow = new IOMonitorWindow(user);
+                        break;
+                    case "장비 엔지니어":
+                        //nextWindow = new IOMonitorWindow();
+                        nextWindow = new AdminWindow(user);
+                        break;
+                    default:
+                         //nextWindow = new IOMonitorWindow();
+                        nextWindow = new AdminWindow(user);
+                        break;
+                }
 
-                this.Close(); // 로그인 창 닫기
+                nextWindow.Show();
+                this.Close();
             }
             else
             {
